@@ -1,0 +1,27 @@
+{
+  "name": "has-unicode",
+  "version": "1.0.0",
+  "description": "Try to guess if your terminal supports unicode",
+  "main": "index.js",
+  "scripts": {
+    "test": "tap test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iarna/has-unicode"
+  },
+  "keywords": [
+    "unicode",
+    "terminal"
+  ],
+  "author": "Rebecca Turner <me@re-becca.org>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iarna/has-unicode/issues"
+  },
+  "homepage": "https://github.com/iarna/has-unicode",
+  "devDependencies": {
+    "require-inject": "^1.1.1",
+    "tap": "^0.4.13"
+  }
+}
