@@ -22,6 +22,6 @@
   "homepage": "https://github.com/iarna/has-unicode",
   "devDependencies": {
     "require-inject": "^1.3.0",
-    "tap": "^0.4.13"
+    "tap": "^2.3.1"
   }
 }
