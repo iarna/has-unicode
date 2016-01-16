@@ -10,17 +10,37 @@ test("Windows", function (t) {
   t.is(hasUnicode(), false, "Windows is assumed NOT to be unicode aware")
 })
 test("Unix Env", function (t) {
-  t.plan(3)
+  t.plan(7)
   var hasUnicode = requireInject("../index.js", {
     os: { type: function () { return "Linux" } },
     child_process: { exec: function (cmd,cb) { cb(new Error("not available")) } }
   })
   process.env.LANG = "en_US.UTF-8"
   process.env.LC_ALL = null
+  process.env.LC_CTYPE = null
   t.is(hasUnicode(), true, "Linux with a UTF8 language")
+  process.env.LANG = "en_US.utf8"
+  process.env.LC_ALL = null
+  process.env.LC_CTYPE = null
+  t.is(hasUnicode(), true, "Linux with a UTF8 language (lower case, unhyphenated)")
   process.env.LANG = null
   process.env.LC_ALL = "en_US.UTF-8"
+  process.env.LC_CTYPE = null
   t.is(hasUnicode(), true, "Linux with UTF8 locale")
+  process.env.LANG = null
+  process.env.LC_ALL = "en_US.utf8"
+  process.env.LC_CTYPE = null
+  t.is(hasUnicode(), true, "Linux with UTF8 locale (lower case, unhyphenated)")
+  process.env.LANG = null
   process.env.LC_ALL = null
+  process.env.LC_CTYPE = 'UTF-8'
+  t.is(hasUnicode(), true, "Linux with UTF8 CTYPE")
+  process.env.LANG = null
+  process.env.LC_ALL = null
+  process.env.LC_CTYPE = 'utf8'
+  t.is(hasUnicode(), true, "Linux with UTF8 CTYPE (lower case, unhyphenated)")
+  process.env.LC_ALL = null
+  process.env.LC_LANG = null
+  process.env.LC_CTYPE = null
   t.is(hasUnicode(), false, "Linux without UTF8 language or locale")
 })
