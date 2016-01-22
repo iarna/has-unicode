@@ -10,12 +10,7 @@ var hasUnicode = module.exports = function () {
   // appropriate.
   if (os.type() == "Windows_NT") { return false }
 
-  var isUTF8 = /UTF-?8/i
-  if (isUTF8.test(process.env.LC_ALL)
-   || isUTF8.test(process.env.LC_CTYPE)
-   || isUTF8.test(process.env.LANG)) {
-    return true
-  }
-
-  return false
+  var isUTF8 = /UTF-?8$/i
+  var ctype = process.env.LC_ALL || process.env.LC_CTYPE || process.env.LANG
+  return isUTF8.test(ctype)
 }
