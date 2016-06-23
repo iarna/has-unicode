@@ -1,6 +1,6 @@
 {
   "name": "has-unicode",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Try to guess if your terminal supports unicode",
   "main": "index.js",
   "scripts": {
