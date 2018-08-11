@@ -1,7 +1,7 @@
 "use strict"
 var os = require("os")
 
-var hasUnicode = module.exports = function () {
+module.exports = function hasUnicode() {
   // Recent Win32 platforms (>XP) CAN support unicode in the console but
   // don't have to, and in non-english locales often use traditional local
   // code pages. There's no way, short of windows system calls or execing
