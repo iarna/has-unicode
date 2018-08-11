@@ -10,14 +10,6 @@ if (hasUnicode()) {
   // the terminal probably has unicode support
 }
 ```
-```javascript
-var hasUnicode = require("has-unicode").tryHarder
-hasUnicode(function(unicodeSupported) {
-  if (unicodeSupported) {
-    // the terminal probably has unicode support
-  }
-})
-```
 
 ## Detecting Unicode
 
@@ -40,4 +32,3 @@ that order.  For `LC_ALL` and `LANG`, it looks for `.UTF-8` in the value.
 For `LC_CTYPE` it looks to see if the value is `UTF-8`.  This is sufficient
 for most POSIX systems.  While locale data can be put in `/etc/locale.conf`
 as well, AFAIK it's always copied into the environment.
-
